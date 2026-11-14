@@ -13,8 +13,8 @@ systemctl daemon-reload
 systemctl disable simpleadmin-httpd lighttpd || true
 systemctl daemon-reload
 
+# Hapus binary & konfigurasi SimpleAdmin & Lighttpd
 rm -f /usr/sbin/lighttpd*
-rm -f /var/lib/opkg/info/lighttpd*
 rm -rf /usrdata/simpleadmin
 rm -f /lib/systemd/system/simpleadmin-httpd.service
 rm -f /lib/systemd/system/multi-user.target.wants/simpleadmin-httpd.service
@@ -34,6 +34,21 @@ rm -f /usrdata/etc/initscripts/lighttpd
 rm -f /usrdata/data/www/lighttpd.user
 rm -f /usrdata/data/lighttpd.conf
 rm -f /usrdata/root/bin/simplepasswd
+
+# Hapus opkg lama & database/konfigurasinya
+rm -f /usr/bin/opkg
+rm -f /bin/opkg
+rm -f /usr/sbin/opkg
+rm -f /etc/opkg.conf
+rm -rf /etc/opkg
+rm -rf /var/lib/opkg
+rm -rf /var/opkg-lists
+rm -rf /tmp/opkg-lists
+rm -rf /usrdata/opkg
+rm -rf /usrdata/etc/opkg*
+rm -rf /usrdata/var/lib/opkg
+
+# Bersihkan /opt dan opt.mount
 umount /opt 2>/dev/null || true
 rm -rf /opt
 rm -rf /usrdata/opt/*
