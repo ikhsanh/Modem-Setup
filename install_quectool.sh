@@ -2,6 +2,13 @@
 
 set -e
 
+# Verifikasi apakah Quectool sudah terinstall
+if command -v quectool >/dev/null 2>&1 || [ -x "/usr/bin/quectool" ] || [ -f "/usrdata/quectool/quectool" ]; then
+  echo "[*] Quectool sudah terdeteksi terinstall."
+  echo "[*] Melewati instalasi Quectool."
+  exit 0
+fi
+
 echo "[*] Mencari dan mengunduh quectool release (.tar.gz)..."
 cd /tmp
 
@@ -33,4 +40,3 @@ else
   echo "[!] Gagal mendapatkan link release quectool (.tar.gz)"
   exit 1
 fi
-
