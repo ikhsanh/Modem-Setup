@@ -2,23 +2,28 @@
 
 set -e
 
+echo "[*] Install tailscale dari Entware..."
 export PATH="/opt/bin:/opt/sbin:$PATH"
 
-if ! command -v opkg >/dev/null 2>&1; then
-  echo "[!] opkg tidak ditemukan! Pastikan Entware sudah terinstall terlebih dahulu."
+# Pastikan opkg yang digunakan berasal dari Entware (/opt/bin/opkg)
+if [ -x "/opt/bin/opkg" ]; then
+  OPKG="/opt/bin/opkg"
+else
+  echo "[!] opkg Entware (/opt/bin/opkg) tidak ditemukan!"
+  echo "[!] Pastikan instalasi Entware di /opt sudah berjalan dengan benar."
   exit 1
 fi
 
-# Verifikasi apakah Tailscale sudah terinstall
-if command -v tailscale >/dev/null 2>&1 || [ -x "/opt/bin/tailscale" ]; then
-  echo "[*] Tailscale sudah terinstall: $(which tailscale 2>/dev/null || echo '/opt/bin/tailscale')"
+# Verifikasi apakah Tailscale sudah terinstall di Entware
+if [ -x "/opt/bin/tailscale" ]; then
+  echo "[*] Tailscale sudah terinstall: /opt/bin/tailscale"
   echo "[*] Melewati instalasi Tailscale."
   exit 0
 fi
 
-echo "[*] Install tailscale dari Entware..."
-opkg update
-opkg install cron
-opkg install tailscale_nohf
+echo "[*] Mengupdate paket Entware..."
+$OPKG update
+$OPKG install cron
+$OPKG install tailscale_nohf
 
 echo "[+] Instalasi Tailscale selesai."

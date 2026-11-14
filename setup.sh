@@ -11,7 +11,7 @@ run_step() {
     sh "$SCRIPT_DIR/$SCRIPT_NAME"
   else
     echo "[*] Mengunduh dan menjalankan $SCRIPT_NAME..."
-    curl -fsSL "$REPO_RAW_URL/$SCRIPT_NAME" | sh
+    curl -fsSL "$REPO_RAW_URL/$SCRIPT_NAME?t=$(date +%s)" | sh
   fi
 }
 
