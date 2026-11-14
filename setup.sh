@@ -3,7 +3,7 @@
 set -e
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
-REPO_RAW_URL="https://raw.githubusercontent.com/zainalicious/Modem-Setup/main"
+REPO_RAW_URL="https://raw.githubusercontent.com/ikhsanh/Modem-Setup/main"
 
 run_step() {
   SCRIPT_NAME="$1"

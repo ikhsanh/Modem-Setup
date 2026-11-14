@@ -9,21 +9,21 @@ Script otomatisasi untuk konfigurasi dan setup modem Quectel / Linux-based modem
 Jalankan perintah berikut melalui SSH/Terminal pada modem Anda:
 
 ```sh
-cd /tmp && curl -sL https://raw.githubusercontent.com/zainalicious/Modem-Setup/main/setup.sh | sh
+cd /tmp && curl -sL https://raw.githubusercontent.com/ikhsanh/Modem-Setup/main/setup.sh | sh
 ```
 
 ### Jalankan dengan Pilihan Otomatis (Non-interaktif)
 
-Anda juga dapat langsung menentukan nomor opsi tanpa melalui prompt:
+Anda juga dapat langsung menentukan nomor opsi tanpa melalui prompt interaktif:
 
 * **Opsi 1: All in One** (Install semua komponen + Quectool)
   ```sh
-  cd /tmp && curl -sL https://raw.githubusercontent.com/zainalicious/Modem-Setup/main/setup.sh | sh -s 1
+  cd /tmp && curl -sL https://raw.githubusercontent.com/ikhsanh/Modem-Setup/main/setup.sh | sh -s 1
   ```
 
 * **Opsi 2: Tanpa Quectool** (Install semua komponen KECUALI Quectool)
   ```sh
-  cd /tmp && curl -sL https://raw.githubusercontent.com/zainalicious/Modem-Setup/main/setup.sh | sh -s 2
+  cd /tmp && curl -sL https://raw.githubusercontent.com/ikhsanh/Modem-Setup/main/setup.sh | sh -s 2
   ```
 
 ---
